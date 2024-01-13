@@ -9,7 +9,7 @@ class Player {
         this.position = position;
         this.velocity = {
             x:0,
-            y:1,
+            y:1
         }
     }
 
@@ -21,7 +21,7 @@ class Player {
     update() {
         this.draw()
         this.position.y += this.velocity.y
-        this.velocity += gravity
+        this.velocity.y += gravity
     }
 }
 const player = new Player({
