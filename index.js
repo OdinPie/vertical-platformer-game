@@ -4,7 +4,10 @@ const c = canvas.getContext('2d'); //canvas context
 canvas.width = 1024;
 canvas.height = 576;
 const gravity = 0.5
-
+const scaledCanvas = {
+    width: canvas.width/4,
+    height: canvas.height/4
+}
 class Sprite {
     constructor ({position, imageSrc}) {
         this.position = position
@@ -76,7 +79,12 @@ function animate() {
     c.fillStyle = 'white'; //this is done to clear the canvas for each y change jaate ager gula muche jay, prevents drip effect
     c.fillRect(0,0,canvas.width,canvas.height);
 
+    c.save() //the code within save and restore will be only executed once
+    c.scale(4,4)
+    c.translate(0, -background.image.height+scaledCanvas.height)
     background.update()
+    c.restore()
+
     player.update()
     p2.update();
     player.velocity.x = 0
