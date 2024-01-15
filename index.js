@@ -81,7 +81,7 @@ function animate() {
 
     c.save() //the code within save and restore will be only executed once
     c.scale(4,4)
-    c.translate(0, -background.image.height+scaledCanvas.height)
+    c.translate(0, -background.image.height+scaledCanvas.height) //because canvas is scaled 4 times
     background.update()
     c.restore()
 
